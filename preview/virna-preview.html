@@ -1,0 +1,1038 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Virna — Sustainable Pooja Essentials</title>
+<meta name="description" content="Virna makes agarbatti, dhoop, flowers, diyas and gift boxes from temple flowers, cow dung, clay and cotton — packed in paper, never plastic.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Mulish:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F1E8; --paper:#FBF8F2; --sand:#ECE3D3; --line:#DDD3C2; --line-2:#E8E0D2;
+  --ink:#2F2B25; --muted:#766E61; --clay:#A8643F; --clay-d:#8E5232;
+  --olive:#4F5A3F; --olive-d:#3B4430; --cream:#F3EBDC;
+  --serif:"Cormorant Garamond", Georgia, serif; --sans:"Mulish", system-ui, sans-serif;
+  --wrap:1240px; --gut:24px; --r:4px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+input,select,textarea{font:inherit;color:inherit}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:500;line-height:1.1;margin:0;letter-spacing:-.005em}
+p{margin:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+.eyebrow{font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--clay)}
+.muted{color:var(--muted)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 26px;border-radius:var(--r);font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;transition:background .2s,color .2s,border-color .2s}
+.btn-primary{background:var(--olive);color:var(--cream)}
+.btn-primary:hover{background:var(--olive-d)}
+.btn-ghost{border:1px solid var(--ink);color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--cream)}
+.btn-clay{background:var(--clay);color:#fff}
+.btn-clay:hover{background:var(--clay-d)}
+.btn-block{width:100%}
+.btn[disabled]{opacity:.6;pointer-events:none}
+.link{border-bottom:1px solid currentColor;padding-bottom:1px;font-weight:600}
+
+/* announcement + header */
+.announce{background:var(--olive);color:var(--cream);font-size:12.5px;letter-spacing:.04em;text-align:center;padding:9px 16px}
+header.site{position:sticky;top:0;z-index:40;background:rgba(246,241,232,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.hdr{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:72px}
+.logo{display:flex;align-items:center;gap:9px;justify-self:center}
+.logo span{font-family:var(--serif);font-size:32px;font-weight:600;letter-spacing:.02em;line-height:1}
+.nav{display:flex;gap:26px;font-size:13.5px;font-weight:600}
+.nav a{padding:6px 0;border-bottom:1px solid transparent}
+.nav a:hover,.nav a.on{border-color:var(--ink)}
+.hdr-actions{display:flex;justify-content:flex-end;gap:6px}
+.icon-btn{width:42px;height:42px;display:grid;place-items:center;border-radius:50%;position:relative}
+.icon-btn:hover{background:var(--sand)}
+.count{position:absolute;top:4px;right:2px;min-width:18px;height:18px;border-radius:9px;background:var(--clay);color:#fff;font-size:10.5px;font-weight:700;display:grid;place-items:center;padding:0 5px}
+.count[data-n="0"]{display:none}
+.menu-btn{display:none}
+.searchbar{display:none;border-top:1px solid var(--line);background:var(--paper)}
+.searchbar.open{display:block}
+.searchbar form{display:flex;gap:10px;padding:14px 0}
+.searchbar input{flex:1;height:46px;border:1px solid var(--line);background:#fff;border-radius:var(--r);padding:0 16px;outline:none}
+.searchbar input:focus{border-color:var(--olive)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding-block:56px 64px}
+.hero h1{font-size:clamp(44px,5.6vw,76px);margin:18px 0 22px}
+.hero h1 em{font-style:italic;color:var(--clay)}
+.hero p.lead{font-size:17px;color:var(--muted);max-width:470px;margin-bottom:32px}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+.hero-art{max-width:480px;justify-self:end;width:100%}
+.facts{display:flex;flex-wrap:wrap;gap:10px 32px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 0;font-size:13px;font-weight:600;color:var(--muted)}
+.facts span{display:flex;align-items:center;gap:9px}
+.facts span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--clay)}
+
+/* sections */
+.sec{padding-block:80px}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:34px}
+.sec-head h2{font-size:clamp(32px,3.6vw,46px);margin-top:10px}
+
+/* category tiles */
+.cats{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.cat{text-align:center}
+.cat .ph{aspect-ratio:3/4;border-radius:120px 120px var(--r) var(--r);overflow:hidden;display:grid;place-items:center;transition:transform .3s}
+.cat:hover .ph{transform:translateY(-4px)}
+.cat .ph svg{width:88%}
+.cat h3{font-size:22px;margin-top:14px}
+.cat p{font-size:12.5px;color:var(--muted)}
+
+/* product grid */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:34px 22px}
+.card-img{position:relative;display:grid;place-items:center;aspect-ratio:1/1;border-radius:var(--r);overflow:hidden}
+.card-img svg{width:86%;transition:transform .4s}
+.card:hover .card-img svg{transform:scale(1.04)}
+.badge{position:absolute;top:12px;left:12px;background:var(--paper);font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 9px;border-radius:2px}
+.card-body{padding-top:14px}
+.card-name{font-family:var(--serif);font-size:21px;font-weight:600;line-height:1.2;display:block}
+.card-note{font-size:13px;color:var(--muted);margin:3px 0 12px;min-height:21px}
+.card-foot{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.price{font-weight:700;font-size:15px}
+.price small{font-weight:500;color:var(--muted);font-size:12.5px}
+.mrp{color:var(--muted);text-decoration:line-through;font-size:13px;margin-left:6px;font-weight:500}
+.btn-add{height:36px;padding:0 16px;border:1px solid var(--ink);border-radius:var(--r);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.btn-add:hover{background:var(--ink);color:var(--cream)}
+
+/* story band */
+.band{background:var(--olive);color:var(--cream)}
+.band .eyebrow{color:#D9B48E}
+.story{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;padding-block:88px}
+.story h2{font-size:clamp(34px,4vw,54px)}
+.story p.lead{color:#D7D2C1;margin-top:20px;max-width:420px}
+.steps{display:grid;gap:0}
+.step{display:grid;grid-template-columns:64px 1fr;gap:18px;padding:22px 0;border-top:1px solid rgba(243,235,220,.2)}
+.step:last-child{border-bottom:1px solid rgba(243,235,220,.2)}
+.step b{font-family:var(--serif);font-size:30px;font-weight:500;color:#D9B48E;line-height:1}
+.step h3{font-size:24px;margin-bottom:6px}
+.step p{color:#D7D2C1;font-size:14.5px}
+
+/* gift feature */
+.feature{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.feature .art{background:#DEE0CE;display:grid;place-items:center;padding:30px}
+.feature .art svg{width:80%}
+.feature .txt{padding:56px}
+.feature h2{font-size:clamp(32px,3.4vw,46px);margin:12px 0 16px}
+.ticks{list-style:none;padding:0;margin:22px 0 30px;display:grid;gap:10px}
+.ticks li{padding-left:26px;position:relative}
+.ticks li::before{content:"";position:absolute;left:2px;top:7px;width:10px;height:6px;border-left:2px solid var(--olive);border-bottom:2px solid var(--olive);transform:rotate(-45deg)}
+
+/* bulk band */
+.bulk{display:flex;align-items:center;justify-content:space-between;gap:30px;background:var(--sand);border-radius:var(--r);padding:44px 52px}
+.bulk h2{font-size:clamp(28px,3vw,38px)}
+.bulk p{color:var(--muted);margin-top:8px;max-width:560px}
+
+/* newsletter */
+.news{text-align:center;max-width:620px;margin:0 auto}
+.news h2{font-size:clamp(30px,3.2vw,42px);margin:10px 0 10px}
+.news form{display:flex;gap:10px;margin-top:26px}
+.news input{flex:1;height:48px;border:1px solid var(--line);background:#fff;border-radius:var(--r);padding:0 16px;outline:none}
+.news input:focus{border-color:var(--olive)}
+
+/* footer */
+footer.site{background:#EAE2D3;margin-top:40px;padding:64px 0 28px;font-size:14px}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+.foot h4{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
+.foot ul{list-style:none;padding:0;margin:0;display:grid;gap:8px;color:var(--muted)}
+.foot ul a:hover{color:var(--ink)}
+.foot-brand p{color:var(--muted);max-width:300px;margin-top:14px}
+.foot-bottom{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:48px;padding-top:22px;font-size:12.5px;color:var(--muted)}
+.pay{display:flex;gap:8px;flex-wrap:wrap}
+.pay span{border:1px solid var(--line);border-radius:3px;padding:3px 8px;font-size:11.5px;font-weight:700;color:var(--ink);background:var(--paper)}
+
+/* page heads, breadcrumbs */
+.crumbs{font-size:12.5px;color:var(--muted);padding:22px 0 0}
+.crumbs a:hover{color:var(--ink)}
+.page-head{padding:26px 0 30px}
+.page-head h1{font-size:clamp(38px,4.6vw,58px)}
+.page-head p{color:var(--muted);margin-top:10px;max-width:560px}
+.toolbar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0;margin-bottom:34px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{height:36px;padding:0 16px;border:1px solid var(--line);border-radius:18px;display:inline-flex;align-items:center;font-size:13px;font-weight:600;background:var(--paper)}
+.chip:hover{border-color:var(--ink)}
+.chip.on{background:var(--ink);border-color:var(--ink);color:var(--cream)}
+.sort{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted)}
+.sort select{height:36px;border:1px solid var(--line);border-radius:var(--r);background:var(--paper);padding:0 10px;color:var(--ink)}
+.empty{text-align:center;padding:60px 0;color:var(--muted)}
+
+/* product page */
+.pdp{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;padding:24px 0 40px}
+.gallery .main{aspect-ratio:1/1;border-radius:var(--r);display:grid;place-items:center;overflow:hidden}
+.gallery .main svg{width:82%}
+.thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px}
+.thumbs button{aspect-ratio:1/1;border-radius:var(--r);display:grid;place-items:center;border:1px solid transparent;overflow:hidden}
+.thumbs button svg{width:80%}
+.thumbs button.on{border-color:var(--ink)}
+.pdp-info h1{font-size:clamp(36px,3.8vw,50px);margin:10px 0 12px}
+.pdp-price{font-size:22px;font-weight:700;margin:6px 0 4px}
+.pdp-tax{font-size:12.5px;color:var(--muted)}
+.pdp-desc{margin:22px 0;color:#4d473e}
+.opt-label{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin:24px 0 10px}
+.sizes{display:flex;gap:10px;flex-wrap:wrap}
+.size{height:42px;padding:0 18px;border:1px solid var(--line);border-radius:var(--r);background:var(--paper);font-size:13.5px;font-weight:600}
+.size.on{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.buy-row{display:grid;grid-template-columns:auto 1fr;gap:12px;margin-top:26px}
+.stepper{display:flex;align-items:center;border:1px solid var(--line);border-radius:var(--r);background:var(--paper);height:48px}
+.stepper button{width:42px;height:100%;font-size:18px}
+.stepper span{min-width:30px;text-align:center;font-weight:700}
+.buy-now{margin-top:10px}
+.perks{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:26px 0;font-size:12.5px;color:var(--muted)}
+.perks div{background:var(--paper);border:1px solid var(--line-2);border-radius:var(--r);padding:12px;text-align:center}
+.perks b{display:block;color:var(--ink);font-size:13px}
+details.acc{border-top:1px solid var(--line)}
+details.acc:last-of-type{border-bottom:1px solid var(--line)}
+details.acc summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:17px 0;font-weight:700;font-size:14px}
+details.acc summary::-webkit-details-marker{display:none}
+details.acc summary::after{content:"+";font-size:20px;font-weight:400}
+details.acc[open] summary::after{content:"–"}
+details.acc .acc-body{padding:0 0 18px;color:#4d473e;font-size:14.5px}
+.acc-body ul{margin:0;padding-left:18px}
+
+/* drawer */
+.scrim{position:fixed;inset:0;background:rgba(47,43,37,.35);opacity:0;pointer-events:none;transition:opacity .25s;z-index:60}
+.scrim.open{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);background:var(--paper);z-index:70;transform:translateX(100%);transition:transform .3s ease;display:flex;flex-direction:column}
+.drawer.open{transform:none}
+.drawer.left{left:0;right:auto;transform:translateX(-100%)}
+.drawer.left.open{transform:none}
+.drawer-head{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;border-bottom:1px solid var(--line)}
+.drawer-head h3{font-size:26px}
+.drawer-body{flex:1;overflow:auto;padding:8px 24px}
+.drawer-foot{border-top:1px solid var(--line);padding:18px 24px 22px}
+.ship-bar{padding:14px 0 6px;font-size:13px}
+.ship-bar .track{height:4px;background:var(--line-2);border-radius:2px;margin-top:8px;overflow:hidden}
+.ship-bar .fill{height:100%;background:var(--olive);transition:width .3s}
+.line{display:grid;grid-template-columns:78px 1fr auto;gap:14px;padding:16px 0;border-bottom:1px solid var(--line-2)}
+.line .th{aspect-ratio:1/1;border-radius:var(--r);display:grid;place-items:center;overflow:hidden}
+.line .th svg{width:84%}
+.line h4{font-size:18px;font-weight:600}
+.line .meta{font-size:12.5px;color:var(--muted)}
+.line .qty{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:var(--r);margin-top:8px;height:32px}
+.line .qty button{width:30px;height:100%}
+.line .qty span{min-width:22px;text-align:center;font-size:13px;font-weight:700}
+.line .rm{font-size:12px;color:var(--muted);text-decoration:underline;margin-top:6px;display:block}
+.line .amt{font-weight:700;font-size:14px}
+.row{display:flex;justify-content:space-between;align-items:center;margin:6px 0}
+.row.total{font-size:17px;font-weight:700;border-top:1px solid var(--line);padding-top:12px;margin-top:12px}
+.mnav{display:grid;padding:10px 24px}
+.mnav a{font-family:var(--serif);font-size:26px;padding:12px 0;border-bottom:1px solid var(--line-2)}
+
+/* checkout */
+.co{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;padding:10px 0 60px}
+.co h2{font-size:28px;margin:30px 0 16px}
+.co h2:first-child{margin-top:0}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fields .full{grid-column:1/-1}
+.field label{display:block;font-size:12.5px;font-weight:700;margin-bottom:6px}
+.field input,.field select,.field textarea{width:100%;height:48px;border:1px solid var(--line);border-radius:var(--r);background:#fff;padding:0 14px;outline:none}
+.field textarea{height:120px;padding:12px 14px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--olive)}
+.field.err input,.field.err select{border-color:#B4493A}
+.field .msg{font-size:12px;color:#B4493A;margin-top:4px;display:none}
+.field.err .msg{display:block}
+.opt{display:flex;gap:14px;align-items:flex-start;border:1px solid var(--line);border-radius:var(--r);background:#fff;padding:16px;cursor:pointer;margin-bottom:10px}
+.opt input{margin-top:4px;accent-color:var(--olive)}
+.opt b{display:block;font-size:14.5px}
+.opt span{font-size:13px;color:var(--muted)}
+.opt:has(input:checked){border-color:var(--ink)}
+.note{font-size:12.5px;color:var(--muted);background:var(--sand);border-radius:var(--r);padding:12px 14px;margin:14px 0}
+.summary{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:26px;position:sticky;top:96px;align-self:start}
+.summary h3{font-size:26px;margin-bottom:8px}
+.summary .line{grid-template-columns:62px 1fr auto}
+.summary .line h4{font-size:17px}
+.coupon{display:flex;gap:8px;margin:16px 0 8px}
+.coupon input{flex:1;height:42px;border:1px solid var(--line);border-radius:var(--r);padding:0 12px;background:#fff;outline:none}
+.coupon button{height:42px;padding:0 16px;border:1px solid var(--ink);border-radius:var(--r);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+
+/* confirmation & text pages */
+.done{max-width:680px;margin:0 auto;padding-block:60px;text-align:center}
+.done .tick{width:64px;height:64px;border-radius:50%;background:var(--olive);display:grid;place-items:center;margin:0 auto 22px}
+.done h1{font-size:clamp(38px,4.4vw,54px)}
+.done .box{text-align:left;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:26px;margin:32px 0}
+.prose{max-width:720px;padding-bottom:40px}
+.prose h2{font-size:30px;margin:36px 0 12px}
+.prose p{margin:0 0 14px;color:#4d473e;font-size:16px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:20px 0 50px}
+.split .art{border-radius:var(--r);display:grid;place-items:center;aspect-ratio:1/1}
+.split .art svg{width:80%}
+.faq{max-width:780px;padding-bottom:40px}
+.contact{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;padding:10px 0 60px}
+.contact dl{margin:0;display:grid;gap:18px}
+.contact dt{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.contact dd{margin:4px 0 0;font-size:16px}
+
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:var(--ink);color:var(--cream);padding:12px 20px;border-radius:var(--r);font-size:13.5px;opacity:0;transition:.25s;z-index:90;pointer-events:none}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.preview-tag{background:#E2D8C6;color:var(--muted);text-align:center;font-size:11.5px;padding:6px 16px}
+
+/* responsive */
+@media (max-width:1024px){
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .cats{grid-template-columns:repeat(5,1fr);gap:12px}
+  .story,.co,.pdp{gap:40px}
+}
+@media (max-width:1100px){
+  .nav,[data-hide-mobile]{display:none!important}
+  .menu-btn{display:grid}
+}
+@media (max-width:860px){
+  :root{--gut:16px}
+  .hdr{height:62px}
+  .logo span{font-size:28px}
+  .hero{grid-template-columns:1fr;padding-block:30px 44px;gap:28px}
+  .hero-art{justify-self:center;max-width:380px;order:-1}
+  .grid{grid-template-columns:repeat(2,1fr);gap:28px 14px}
+  .cats{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px}
+  .cat{flex:0 0 38%;scroll-snap-align:start}
+  .sec{padding-block:56px}
+  .sec-head{flex-direction:column;align-items:flex-start}
+  .story{grid-template-columns:1fr;gap:28px;padding-block:60px}
+  .feature{grid-template-columns:1fr}
+  .feature .txt{padding:30px 22px}
+  .bulk{flex-direction:column;align-items:flex-start;padding:30px 22px}
+  .foot{grid-template-columns:1fr 1fr;gap:30px}
+  .foot-brand{grid-column:1/-1}
+  .pdp,.co,.split,.contact{grid-template-columns:1fr;gap:28px}
+  .summary{position:static;order:-1}
+  .fields{grid-template-columns:1fr}
+  .news form{flex-direction:column}
+  .card-name{font-size:18px}
+  .card-foot{flex-wrap:wrap}
+  .btn-add{width:100%}
+}
+@media (max-width:420px){
+  .perks{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="announce">Free shipping on orders above ₹999 &nbsp;·&nbsp; Packed in paper, never plastic</div>
+
+<header class="site">
+  <div class="wrap hdr">
+    <div style="display:flex;align-items:center;gap:6px">
+      <button class="icon-btn menu-btn" data-act="menu" aria-label="Open menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+      </button>
+      <nav class="nav" aria-label="Main">
+        <a href="#/shop">Shop all</a>
+        <a href="#/shop/agarbatti">Agarbatti</a>
+        <a href="#/shop/dhoop">Dhoop</a>
+        <a href="#/shop/flowers">Flowers</a>
+        <a href="#/shop/diyas">Diyas</a>
+        <a href="#/shop/gift-boxes">Gift Boxes</a>
+      </nav>
+    </div>
+    <a href="#/" class="logo" aria-label="Virna home">
+      <svg width="26" height="30" viewBox="0 0 26 30" aria-hidden="true"><path d="M13 1C6 9 3 14 3 19a10 10 0 0 0 20 0c0-5-3-10-10-18Z" fill="#A8643F"/><path d="M13 29V13M13 20l-5-4M13 17l4-3" stroke="#F3EBDC" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+      <span>virna</span>
+    </a>
+    <div class="hdr-actions">
+      <a href="#/about" class="icon-btn" aria-label="Our story" title="Our story" style="width:auto;padding:0 12px;border-radius:21px;font-size:13.5px;font-weight:600" data-hide-mobile>Our story</a>
+      <button class="icon-btn" data-act="search" aria-label="Search">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+      </button>
+      <button class="icon-btn" data-act="open-cart" aria-label="Open cart">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 8h14l-1.2 12H6.2L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span class="count" id="cart-count" data-n="0">0</span>
+      </button>
+    </div>
+  </div>
+  <div class="searchbar" id="searchbar">
+    <form class="wrap" id="search-form">
+      <label for="q" class="sr">Search products</label>
+      <input id="q" type="search" placeholder="Search agarbatti, dhoop, diyas…" autocomplete="off">
+      <button class="btn btn-primary" type="submit">Search</button>
+    </form>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot">
+      <div class="foot-brand">
+        <a href="#/" class="logo" style="justify-content:flex-start;justify-self:start">
+          <svg width="22" height="26" viewBox="0 0 26 30" aria-hidden="true"><path d="M13 1C6 9 3 14 3 19a10 10 0 0 0 20 0c0-5-3-10-10-18Z" fill="#A8643F"/><path d="M13 29V13M13 20l-5-4M13 17l4-3" stroke="#F3EBDC" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+          <span style="font-size:28px">virna</span>
+        </a>
+        <p>Pooja essentials made from what the earth can take back — temple flowers, cow dung, clay, cotton and paper.</p>
+      </div>
+      <div><h4>Shop</h4><ul>
+        <li><a href="#/shop/agarbatti">Agarbatti</a></li><li><a href="#/shop/dhoop">Dhoop</a></li>
+        <li><a href="#/shop/flowers">Flowers</a></li><li><a href="#/shop/diyas">Diyas</a></li>
+        <li><a href="#/shop/gift-boxes">Gift Boxes</a></li></ul></div>
+      <div><h4>Help</h4><ul>
+        <li><a href="#/faq">FAQs</a></li><li><a href="#/faq">Shipping &amp; delivery</a></li>
+        <li><a href="#/faq">Returns</a></li><li><a href="#/contact">Contact us</a></li></ul></div>
+      <div><h4>Virna</h4><ul>
+        <li><a href="#/about">Our story</a></li><li><a href="#/contact">Bulk &amp; corporate gifting</a></li>
+        <li><a href="mailto:hello@virna.in">hello@virna.in</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Virna · virna.in</span>
+      <div class="pay"><span>UPI</span><span>Visa</span><span>Mastercard</span><span>RuPay</span><span>Netbanking</span><span>COD</span></div>
+    </div>
+  </div>
+</footer>
+<div class="preview-tag">Preview build for review — product names, prices and photos are placeholders. Payments are simulated; nothing is charged.</div>
+
+<div class="scrim" id="scrim" data-act="close"></div>
+
+<aside class="drawer" id="cart" aria-label="Cart">
+  <div class="drawer-head"><h3>Your cart</h3>
+    <button class="icon-btn" data-act="close" aria-label="Close cart"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+  <div class="drawer-body" id="cart-body"></div>
+  <div class="drawer-foot" id="cart-foot"></div>
+</aside>
+
+<aside class="drawer left" id="mmenu" aria-label="Menu">
+  <div class="drawer-head"><h3>Menu</h3>
+    <button class="icon-btn" data-act="close" aria-label="Close menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+  <nav class="mnav">
+    <a href="#/shop">Shop all</a><a href="#/shop/agarbatti">Agarbatti</a><a href="#/shop/dhoop">Dhoop</a>
+    <a href="#/shop/flowers">Flowers</a><a href="#/shop/diyas">Diyas</a><a href="#/shop/gift-boxes">Gift Boxes</a>
+    <a href="#/about">Our story</a><a href="#/faq">FAQs</a><a href="#/contact">Contact</a>
+  </nav>
+</aside>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ==========================================================================
+   VIRNA storefront — single-file preview
+
+   Everything product-related lives in CATEGORIES and PRODUCTS below; replace
+   those with the real catalogue. Payments go through Payments.start(), which
+   already contains the Razorpay Checkout flow — set CONFIG.razorpayKey and the
+   two API endpoints once a backend exists. Until then checkout is simulated.
+   ========================================================================== */
+
+const CONFIG = {
+  razorpayKey: '',                 // e.g. 'rzp_live_xxx' — leave empty to simulate
+  api: {
+    createOrder: '/api/orders',    // POST {items, customer, amount} -> {id, razorpay_order_id, amount}
+    verifyPayment: '/api/verify'   // POST razorpay response -> {ok:true}
+  },
+  freeShippingOver: 999,
+  shippingFee: 79,
+  currency: 'INR'
+};
+
+const CATEGORIES = [
+  { slug:'agarbatti',  name:'Agarbatti',  note:'Hand-rolled, charcoal-free', art:'agarbatti', tone:'sand' },
+  { slug:'dhoop',      name:'Dhoop',      note:'Cones, cups & sambrani',     art:'dhoop',     tone:'stone' },
+  { slug:'flowers',    name:'Flowers',    note:'Torans & dried petals',      art:'toran',     tone:'sage' },
+  { slug:'diyas',      name:'Diyas',      note:'Clay diyas & tealights',     art:'diyaset',   tone:'blush' },
+  { slug:'gift-boxes', name:'Gift Boxes', note:'Packed by hand',             art:'giftbox',   tone:'oat' }
+];
+
+const PRODUCTS = [
+  { id:'P01', slug:'mysore-sandal-agarbatti', name:'Mysore Sandal Agarbatti', category:'agarbatti', tag:'Bestseller',
+    sizes:[{label:'50 sticks',price:189},{label:'100 sticks',price:329,mrp:378}],
+    short:'Warm, creamy, slow-burning.', art:'agarbatti', tone:'sand', accent:'#B06A43',
+    desc:'Sandalwood powder, temple-flower base and natural binders rolled by hand on bamboo. Each stick burns for about 40 minutes and leaves a soft, woody sweetness in the room.',
+    made:['Recycled temple flowers','Sandalwood powder','Jigat (natural binder)','Bamboo stick'],
+    use:'Light the tip, let the flame catch for a few seconds, then gently blow it out. Place in a holder on a heat-safe surface.' },
+  { id:'P02', slug:'mogra-agarbatti', name:'Mogra Agarbatti', category:'agarbatti',
+    sizes:[{label:'100 sticks',price:299}],
+    short:'Fresh jasmine, evening calm.', art:'agarbatti', tone:'oat', accent:'#8C9566',
+    desc:'A clean jasmine blend made to smell like a mogra gajra just after it is strung. Light, never cloying.',
+    made:['Recycled temple flowers','Mogra essential oil','Jigat (natural binder)','Bamboo stick'],
+    use:'Light the tip, let the flame catch, then blow it out. Keep away from curtains and children.' },
+  { id:'P03', slug:'rose-vetiver-agarbatti', name:'Rose & Vetiver Agarbatti', category:'agarbatti', tag:'New',
+    sizes:[{label:'100 sticks',price:299}],
+    short:'Rose petals over cool khus.', art:'agarbatti', tone:'blush', accent:'#B45F52',
+    desc:'Rose petals collected from temples, dried in the shade and paired with earthy vetiver root.',
+    made:['Recycled rose petals','Vetiver (khus) root','Jigat (natural binder)','Bamboo stick'],
+    use:'Light the tip, let the flame catch, then blow it out.' },
+  { id:'P04', slug:'temple-flower-agarbatti', name:'Temple Flower Agarbatti', category:'agarbatti', tag:'Bestseller',
+    sizes:[{label:'100 sticks',price:349}],
+    short:'Our signature, from offered flowers.', art:'agarbatti', tone:'sage', accent:'#6F7A4E',
+    desc:'Marigold, rose and chrysanthemum offered at temples are collected, sorted, dried and ground into this signature blend — flowers that would otherwise end up in rivers.',
+    made:['Marigold, rose & chrysanthemum','Natural resins','Jigat (natural binder)','Bamboo stick'],
+    use:'Light the tip, let the flame catch, then blow it out.' },
+  { id:'P05', slug:'guggal-dhoop-cones', name:'Guggal Dhoop Cones', category:'dhoop',
+    sizes:[{label:'20 cones',price:199},{label:'40 cones',price:349,mrp:398}],
+    short:'Resinous, grounding, traditional.', art:'dhoop', tone:'stone', accent:'#B06A43', cone:'#5B3E2B',
+    desc:'Guggal resin blended with cow-dung and flower powder. Dense smoke, deep aroma — the smell of an evening aarti.',
+    made:['Guggal resin','Cow dung','Temple flower powder','Ghee'],
+    use:'Light the tip of the cone, let it glow and set it on a heat-safe dish.' },
+  { id:'P06', slug:'loban-dhoop-cones', name:'Loban Dhoop Cones', category:'dhoop',
+    sizes:[{label:'20 cones',price:219}],
+    short:'Benzoin resin, soft and sweet.', art:'dhoop', tone:'sand', accent:'#8C9566', cone:'#7A5238',
+    desc:'Loban (benzoin) resin cones that smell of vanilla and old wood. Traditionally used to clear and freshen a room.',
+    made:['Loban (benzoin) resin','Cow dung','Temple flower powder'],
+    use:'Light the tip of the cone, let it glow and set it on a heat-safe dish.' },
+  { id:'P07', slug:'cow-dung-sambrani-cups', name:'Sambrani Cups', category:'dhoop', tag:'Bestseller',
+    sizes:[{label:'12 cups',price:179},{label:'24 cups',price:319,mrp:358}],
+    short:'Self-burning cups, no charcoal.', art:'sambrani', tone:'oat',
+    desc:'Cow-dung cups filled with sambrani, camphor and herbs. Light the rim — the whole cup smoulders for 15 to 20 minutes, no charcoal needed.',
+    made:['Cow dung','Sambrani resin','Camphor','Dried herbs'],
+    use:'Light the rim of the cup, wait for it to catch, then blow out the flame. Set on a metal plate.' },
+  { id:'P08', slug:'marigold-toran', name:'Marigold Toran', category:'flowers',
+    sizes:[{label:'3 ft',price:449},{label:'5 ft',price:649}],
+    short:'Dried, hand-strung, reusable.', art:'toran', tone:'sage',
+    desc:'Marigolds and mango leaves, dried and strung on cotton thread. Hang it at the door for the whole season, then let it go back into your compost.',
+    made:['Dried marigold','Dried mango leaves','Cotton thread'],
+    use:'Hang indoors or in a covered doorway. Keep dry. Compost when done.' },
+  { id:'P09', slug:'rose-petal-pouch', name:'Rose Petal Pouch', category:'flowers',
+    sizes:[{label:'100 g',price:149}],
+    short:'For thalis, rangoli and baths.', art:'petals', tone:'blush', palette:['#B45F52','#CF8A7C','#A04D44'],
+    desc:'Whole rose petals, shade-dried so they keep their colour. Scatter on a pooja thali, use in rangoli or float in water.',
+    made:['Shade-dried rose petals'],
+    use:'Store in the pouch, away from moisture.' },
+  { id:'P10', slug:'rangoli-petal-mix', name:'Rangoli Petal Mix', category:'flowers', tag:'New',
+    sizes:[{label:'250 g',price:249}],
+    short:'Marigold, rose & leaf, sorted by colour.', art:'petals', tone:'sand', palette:['#D38B3A','#E4AC5A','#B45F52','#6F7A4E'],
+    desc:'Four colours of dried petals and leaf in separate paper sachets, ready for a rangoli at the door that you can sweep straight into a plant pot.',
+    made:['Marigold petals','Rose petals','Chrysanthemum petals','Dried leaf'],
+    use:'Lay out your design and fill in by hand. Sweep into soil once done.' },
+  { id:'P11', slug:'hand-painted-clay-diyas', name:'Hand-painted Clay Diyas', category:'diyas', tag:'Bestseller',
+    sizes:[{label:'Set of 6',price:299},{label:'Set of 12',price:549,mrp:598}],
+    short:'Terracotta, painted with natural colours.', art:'diyaset', tone:'blush',
+    desc:'Wheel-thrown terracotta diyas, sun-dried, fired and painted by hand. Each one is slightly different. Comes with cotton wicks.',
+    made:['Terracotta clay','Natural mineral paint','Cotton wicks (included)'],
+    use:'Soak diyas in water for an hour before first use so they absorb less oil. Fill with ghee or oil and place the wick in the spout.' },
+  { id:'P12', slug:'soy-wax-tealights', name:'Soy Wax Tealights', category:'diyas',
+    sizes:[{label:'Pack of 12',price:249}],
+    short:'Clean burn, reusable tins.', art:'tealight', tone:'stone',
+    desc:'Soy wax poured into small metal tins with cotton wicks. Around four hours each. Keep the tins — we refill them.',
+    made:['Soy wax','Cotton wick','Reusable metal tin'],
+    use:'Place on a flat, heat-safe surface. Never leave burning unattended.' },
+  { id:'P13', slug:'the-small-offering-box', name:'The Small Offering', category:'gift-boxes',
+    sizes:[{label:'Gift box',price:899}],
+    short:'A little of everything.', art:'giftbox', tone:'sage', box:'#CFB58F', ribbon:'#A8643F',
+    desc:'Our smallest gift box, packed by hand in a kraft box with a seed-paper note you can plant.',
+    includes:['Temple Flower Agarbatti (50 sticks)','4 hand-painted clay diyas','Rose Petal Pouch','Seed-paper greeting card'],
+    made:['Kraft paper box','Cotton ribbon','Seed-paper card'],
+    use:'Add a personal message at checkout and we will hand-write it on the card.' },
+  { id:'P14', slug:'the-full-aarti-box', name:'The Full Aarti Box', category:'gift-boxes', tag:'Bestseller',
+    sizes:[{label:'Gift box',price:1599,mrp:1799}],
+    short:'Everything for the evening aarti.', art:'hamper', tone:'sand',
+    desc:'A complete aarti set in one box — incense, dhoop, diyas, a toran for the door and petals for the thali.',
+    includes:['Mysore Sandal Agarbatti (100 sticks)','Guggal Dhoop Cones (20)','6 hand-painted clay diyas','Marigold Toran (3 ft)','Rose Petal Pouch','Seed-paper greeting card'],
+    made:['Kraft paper box','Cotton ribbon','Seed-paper card'],
+    use:'Add a personal message at checkout and we will hand-write it on the card.' },
+  { id:'P15', slug:'the-gratitude-hamper', name:'The Gratitude Hamper', category:'gift-boxes',
+    sizes:[{label:'Hamper',price:2499}],
+    short:'Our largest box, for family and teams.', art:'giftbox', tone:'blush', box:'#6F7A4E', ribbon:'#E4AC5A',
+    desc:'Our largest box, made for gifting to family, clients and teams. Custom notes and branding available on orders of 25 or more.',
+    includes:['Three agarbatti fragrances (100 sticks each)','Sambrani Cups (12)','12 hand-painted clay diyas','Soy Wax Tealights (12)','Marigold Toran (5 ft)','Rangoli Petal Mix','Seed-paper greeting card'],
+    made:['Reusable fabric-lined box','Cotton ribbon','Seed-paper card'],
+    use:'For bulk or branded orders, write to us from the Contact page.' }
+];
+
+/* ---------- illustrations (placeholders until real photography) ---------- */
+const TONES = { sand:'#ECE2D0', sage:'#DEE0CE', blush:'#F0DDD4', stone:'#E4E0D7', oat:'#F2EADB' };
+const TONE_ALT = { sand:'stone', sage:'oat', blush:'sand', stone:'sage', oat:'blush' };
+const C = { brown:'#5B3E2B', brown2:'#7A5238', bamboo:'#C8A67B', mari:'#D38B3A', mari2:'#E4AC5A', mari3:'#B8732C',
+  rose:'#B45F52', leaf:'#6F7A4E', clay:'#B06A43', clayD:'#8C4F30', kraft:'#CFB58F', kraftD:'#B89A70',
+  flame:'#E8B04F', flame2:'#F6DC98', cream:'#F6EFE2', ember:'#C9683F', smoke:'rgba(47,43,37,.22)' };
+
+function rng(seed){ let s=0; for(const ch of seed) s=(s*31+ch.charCodeAt(0))>>>0; return ()=>((s=(s*1664525+1013904223)>>>0)/4294967296); }
+const shadow=(cx,cy,rx)=>`<ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${rx*.11}" fill="rgba(47,43,37,.08)"/>`;
+const smoke=(x,y)=>`<path d="M${x} ${y} c-12 -18 12 -30 0 -46 s12 -28 -2 -46" stroke="${C.smoke}" stroke-width="2" fill="none" stroke-linecap="round"/>`;
+const flame=(x,y,s=1)=>`<g transform="translate(${x} ${y}) scale(${s})"><path d="M0 0 C-12 -20 -4 -42 6 -58 C14 -38 20 -18 8 0 Z" fill="${C.flame}"/><path d="M2 -4 C-4 -16 0 -28 5 -36 C10 -26 12 -14 6 -4 Z" fill="${C.flame2}"/></g>`;
+const marigold=(x,y,r)=>{ let p=''; for(let i=0;i<10;i++){const a=i/10*Math.PI*2; p+=`<circle cx="${(x+Math.cos(a)*r*.72).toFixed(1)}" cy="${(y+Math.sin(a)*r*.72).toFixed(1)}" r="${(r*.36).toFixed(1)}" fill="${C.mari2}"/>`;}
+  return p+`<circle cx="${x}" cy="${y}" r="${r*.68}" fill="${C.mari}"/><circle cx="${x}" cy="${y}" r="${r*.3}" fill="${C.mari3}"/>`; };
+const leafShape=(x,y,rot,len=24,col=C.leaf)=>`<ellipse cx="${x}" cy="${y}" rx="${len*.34}" ry="${len}" fill="${col}" transform="rotate(${rot} ${x} ${y})"/>`;
+
+function diyaG(x,y,s){
+  let dots=''; for(let i=-3;i<=3;i++) dots+=`<circle cx="${i*22}" cy="${34-Math.abs(i)*3}" r="3.5" fill="${C.cream}" opacity=".85"/>`;
+  return `<g transform="translate(${x} ${y}) scale(${s})">
+    <path d="M88 -4 Q125 -16 136 -30 Q132 4 96 12 Z" fill="${C.clay}"/>
+    <path d="M-100 0 C-82 78 82 78 100 0 Z" fill="${C.clay}"/>
+    <ellipse cx="0" cy="0" rx="100" ry="13" fill="${C.clayD}"/>
+    <ellipse cx="0" cy="0" rx="84" ry="8" fill="#7C4428"/>
+    ${dots}<path d="M-70 20 q17 10 35 0 t35 0 t35 0 t35 0" stroke="${C.cream}" stroke-width="2.5" fill="none" opacity=".7"/>
+    ${flame(130,-28,1)}</g>`;
+}
+function agarbattiG(accent){
+  const sticks=[[190,305,160,125],[200,305,202,110],[210,305,245,130]];
+  let s=''; for(const [bx,by,tx,ty] of sticks){ const mx=bx+(tx-bx)*.38, my=by+(ty-by)*.38;
+    s+=`<line x1="${bx}" y1="${by}" x2="${mx}" y2="${my}" stroke="${C.bamboo}" stroke-width="3" stroke-linecap="round"/>
+        <line x1="${mx}" y1="${my}" x2="${tx}" y2="${ty}" stroke="${C.brown}" stroke-width="7" stroke-linecap="round"/>
+        <circle cx="${tx}" cy="${ty}" r="3.5" fill="${C.ember}"/>${smoke(tx,ty-4)}`; }
+  return shadow(200,322,120)+s+`<path d="M92 312 Q200 284 308 312 Q200 336 92 312Z" fill="${accent}"/><path d="M130 312 Q200 300 270 312" stroke="${C.cream}" stroke-width="1.5" fill="none" opacity=".5"/>`;
+}
+const ART = {
+  agarbatti:p=>agarbattiG(p.accent||C.clay),
+  dhoop:p=>{ const cone=p.cone||C.brown; let c='';
+    for(const [x,y,h] of [[150,296,62],[250,296,66],[200,300,88]]) c+=`<path d="M${x-27} ${y} Q${x} ${y+7} ${x+27} ${y} L${x} ${y-h} Z" fill="${cone}"/><path d="M${x} ${y-h} L${x+27} ${y} Q${x+14} ${y+4} ${x+6} ${y+4}Z" fill="rgba(0,0,0,.12)"/>`;
+    return shadow(200,326,118)+`<ellipse cx="200" cy="304" rx="104" ry="22" fill="${p.accent||C.clay}"/><ellipse cx="200" cy="300" rx="90" ry="14" fill="rgba(255,255,255,.16)"/>`+c+`<circle cx="200" cy="212" r="4" fill="${C.ember}"/>`+smoke(200,206); },
+  sambrani:()=>{ const cup=(x,y,w)=>`<path d="M${x-w} ${y-62} L${x+w} ${y-62} L${x+w*.74} ${y} Q${x} ${y+9} ${x-w*.74} ${y} Z" fill="${C.brown2}"/><ellipse cx="${x}" cy="${y-62}" rx="${w}" ry="${w*.24}" fill="${C.brown}"/><ellipse cx="${x}" cy="${y-62}" rx="${w*.55}" ry="${w*.11}" fill="${C.ember}" opacity=".85"/>`+smoke(x,y-68);
+    return shadow(200,326,125)+`<ellipse cx="200" cy="316" rx="118" ry="16" fill="#B9B4AA"/>`+cup(150,306,40)+cup(248,312,46); },
+  toran:()=>{ const P0=[20,96],P1=[200,196],P2=[380,96]; const q=t=>[(1-t)**2*P0[0]+2*(1-t)*t*P1[0]+t*t*P2[0],(1-t)**2*P0[1]+2*(1-t)*t*P1[1]+t*t*P2[1]];
+    let s=`<path d="M${P0} Q${P1} ${P2}" stroke="#8C6A4A" stroke-width="2" fill="none"/>`;
+    for(let i=0;i<=10;i++){ const [x,y]=q(.04+i*.092);
+      if(i%2===0){ const drop=i%4===0?120:84; s+=`<line x1="${x}" y1="${y}" x2="${x}" y2="${y+drop}" stroke="#8C6A4A" stroke-width="1.5"/>`;
+        for(let k=1;k<=Math.floor(drop/34);k++) s+=marigold(x,y+k*32,11);
+        s+=leafShape(x,y+drop+18,0,20); }
+      else s+=leafShape(x,y+26,i%3?12:-12,26); }
+    for(let i=0;i<=10;i++){ const [x,y]=q(.04+i*.092); s+=marigold(x,y,17); }
+    return s; },
+  petals:p=>{ const r=rng(p.slug||'petals'), cols=p.palette||[C.rose]; let s='';
+    const petal=(x,y)=>{const col=cols[Math.floor(r()*cols.length)]; return `<ellipse cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" rx="10" ry="6" fill="${col}" transform="rotate(${Math.floor(r()*180)} ${x.toFixed(1)} ${y.toFixed(1)})"/>`;};
+    for(let i=0;i<16;i++) s+=petal(165+r()*70,140+r()*38);
+    let floor=''; for(let i=0;i<18;i++) floor+=petal(80+r()*240,306+r()*36);
+    return shadow(200,330,130)+floor+s+`<path d="M150 175 L250 175 L268 320 L132 320 Z" fill="${C.kraft}"/><path d="M150 175 L250 175 L253 197 L147 197Z" fill="${C.kraftD}"/><rect x="170" y="232" width="60" height="44" rx="3" fill="${C.cream}"/><path d="M200 266 v-22 M200 256 l-8 -6 M200 252 l7 -5" stroke="${C.leaf}" stroke-width="2" fill="none" stroke-linecap="round"/>`; },
+  diya:()=>shadow(200,322,130)+diyaG(185,268,1.05),
+  diyaset:()=>shadow(200,330,150)+diyaG(122,250,.55)+diyaG(262,244,.55)+diyaG(182,292,.78),
+  tealight:()=>{ const t=(x,y)=>`<rect x="${x-36}" y="${y-10}" width="72" height="40" rx="6" fill="#B9B4AA"/><rect x="${x-36}" y="${y-10}" width="72" height="40" rx="6" fill="url(#tin)"/><ellipse cx="${x}" cy="${y-10}" rx="36" ry="10" fill="#A7A197"/><ellipse cx="${x}" cy="${y-10}" rx="31" ry="7.5" fill="${C.cream}"/><line x1="${x}" y1="${y-11}" x2="${x}" y2="${y-20}" stroke="#2F2B25" stroke-width="2"/>`+flame(x-3,y-19,.62);
+    return `<defs><linearGradient id="tin" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".25"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".08"/></linearGradient></defs>`+shadow(200,330,130)+t(140,280)+t(260,280)+t(200,306); },
+  giftbox:p=>{ const box=p.box||C.kraft, rib=p.ribbon||C.clay;
+    let dots=''; for(let i=0;i<6;i++) dots+=leafShape(138+i*26,262+(i%2)*18,i%2?30:-30,8,'rgba(255,255,255,.28)');
+    return shadow(200,322,120)+`<rect x="115" y="196" width="170" height="122" fill="${box}"/>${dots}<rect x="103" y="170" width="194" height="34" rx="3" fill="${box}"/><rect x="103" y="198" width="194" height="6" fill="rgba(0,0,0,.08)"/><rect x="191" y="170" width="18" height="148" fill="${rib}"/><path d="M200 172 C168 128 132 150 162 172 Z" fill="${rib}"/><path d="M200 172 C232 128 268 150 238 172 Z" fill="${rib}"/><path d="M200 172 C188 190 176 206 170 214 M200 172 C212 190 222 204 228 212" stroke="${rib}" stroke-width="6" fill="none"/><circle cx="200" cy="171" r="9" fill="${rib}"/><circle cx="200" cy="171" r="9" fill="rgba(0,0,0,.12)"/><line x1="236" y1="200" x2="256" y2="226" stroke="#8C6A4A" stroke-width="1.5"/><g transform="rotate(14 262 238)"><rect x="244" y="226" width="40" height="26" rx="2" fill="${C.cream}"/><circle cx="251" cy="239" r="2.5" fill="#8C6A4A"/></g>`; },
+  hamper:()=>{ let s=''; for(const [bx,tx,ty] of [[170,150,110],[182,176,98],[194,204,116]]) s+=`<line x1="${bx}" y1="220" x2="${tx}" y2="${ty}" stroke="${C.brown}" stroke-width="6" stroke-linecap="round"/><circle cx="${tx}" cy="${ty}" r="3" fill="${C.ember}"/>`;
+    return shadow(200,326,130)+s+smoke(176,94)+diyaG(128,200,.36)+marigold(248,200,18)+marigold(276,212,15)+marigold(226,214,14)+leafShape(292,190,40,20)
+      +`<path d="M95 216 L305 216 L290 320 L110 320 Z" fill="${C.kraft}"/><path d="M88 204 L312 204 L308 224 L92 224Z" fill="${C.kraftD}"/><rect x="158" y="252" width="84" height="34" rx="2" fill="${C.cream}"/><text x="200" y="275" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="20" font-weight="600" fill="#2F2B25">virna</text>`; },
+  pack:p=>{ const words=p.name.split(' '), lines=[]; let cur='';
+    for(const w of words){ if((cur+' '+w).trim().length>13){ lines.push(cur.trim()); cur=w; } else cur+=' '+w; } lines.push(cur.trim());
+    const tx=lines.slice(0,3).map((l,i)=>`<text x="200" y="${238+i*24}" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="22" font-weight="600" fill="#2F2B25">${l}</text>`).join('');
+    return shadow(200,326,110)+`<path d="M120 130 L280 130 L280 320 L120 320 Z" fill="${C.kraft}"/><path d="M120 130 L150 112 L310 112 L280 130 Z" fill="#DCC6A2"/><path d="M280 130 L310 112 L310 300 L280 320 Z" fill="${C.kraftD}"/><rect x="138" y="176" width="124" height="126" rx="2" fill="${C.cream}"/><text x="200" y="204" text-anchor="middle" font-family="Mulish, sans-serif" font-size="10" letter-spacing="3" fill="#A8643F">VIRNA</text><line x1="170" y1="214" x2="230" y2="214" stroke="#DDD3C2"/>${tx}`; }
+};
+function art(p, type){ return `<svg viewBox="0 0 400 400" aria-hidden="true">${ART[type||p.art](p)}</svg>`; }
+function heroArt(){
+  let petals=''; const r=rng('hero'); for(let i=0;i<22;i++){const x=70+r()*340,y=500+r()*40,c=[C.rose,C.mari,C.mari2][i%3]; petals+=`<ellipse cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" rx="10" ry="6" fill="${c}" transform="rotate(${Math.floor(r()*180)} ${x.toFixed(0)} ${y.toFixed(0)})"/>`;}
+  let g=''; const P0=[92,150],P1=[240,250],P2=[388,150];
+  for(let i=0;i<=8;i++){ const t=.05+i*.1125, x=(1-t)**2*P0[0]+2*(1-t)*t*P1[0]+t*t*P2[0], y=(1-t)**2*P0[1]+2*(1-t)*t*P1[1]+t*t*P2[1]; g+=(i%2?leafShape(x,y+24,0,20):'')+marigold(x,y,15); }
+  return `<svg viewBox="0 0 480 560" role="img" aria-label="A lit clay diya, incense sticks and a marigold garland">
+    <path d="M40 560 L40 240 A200 200 0 0 1 440 240 L440 560Z" fill="#E6DCC8"/>
+    <path d="M92 150 Q240 250 388 150" stroke="#8C6A4A" stroke-width="2" fill="none"/>${g}
+    <g transform="translate(215 130) scale(.7)">${agarbattiG('#6F7A4E')}</g>
+    ${shadow(210,532,170)}${diyaG(170,466,1.05)}${petals}
+  </svg>`;
+}
+
+/* ---------------------------------- state ---------------------------------- */
+const store = {
+  get(k,d){ try{ const v=localStorage.getItem(k); return v?JSON.parse(v):d; }catch(e){ return d; } },
+  set(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)); }catch(e){} }
+};
+let cart = store.get('virna_cart', []);   // [{id, size, qty}]
+let lastOrder = store.get('virna_last_order', null);
+const byId = id => PRODUCTS.find(p=>p.id===id);
+const bySlug = s => PRODUCTS.find(p=>p.slug===s);
+const catBySlug = s => CATEGORIES.find(c=>c.slug===s);
+const fmt = n => '₹' + n.toLocaleString('en-IN');
+const esc = s => String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+function cartLines(){ return cart.map(l=>{ const p=byId(l.id); if(!p) return null; const s=p.sizes[l.size]||p.sizes[0]; return {...l, p, s, amount:s.price*l.qty}; }).filter(Boolean); }
+function totals(){
+  const lines=cartLines(), subtotal=lines.reduce((a,l)=>a+l.amount,0);
+  const shipping = subtotal===0||subtotal>=CONFIG.freeShippingOver ? 0 : CONFIG.shippingFee;
+  return {lines, subtotal, shipping, total:subtotal+shipping, count:lines.reduce((a,l)=>a+l.qty,0)};
+}
+function addToCart(id, size=0, qty=1){
+  const hit=cart.find(l=>l.id===id&&l.size===size);
+  hit ? hit.qty+=qty : cart.push({id,size,qty});
+  saveCart(); openDrawer('cart');
+}
+function saveCart(){ store.set('virna_cart', cart); renderCart(); }
+
+/* --------------------------------- views ---------------------------------- */
+function card(p){
+  const s=p.sizes[0];
+  return `<article class="card">
+    <a href="#/product/${p.slug}" class="card-img" style="background:${TONES[p.tone]}">${art(p)}${p.tag?`<span class="badge">${p.tag}</span>`:''}</a>
+    <div class="card-body">
+      <a href="#/product/${p.slug}" class="card-name">${p.name}</a>
+      <p class="card-note">${p.short}</p>
+      <div class="card-foot">
+        <span class="price">${fmt(s.price)}${s.mrp?`<span class="mrp">${fmt(s.mrp)}</span>`:''} <small>· ${s.label}</small></span>
+        <button class="btn-add" data-act="add" data-id="${p.id}">Add</button>
+      </div>
+    </div></article>`;
+}
+
+function Home(){
+  const best=PRODUCTS.filter(p=>p.tag==='Bestseller').slice(0,4);
+  const more=['P03','P06','P09','P12'].map(byId);
+  return `
+  <section class="wrap hero">
+    <div>
+      <span class="eyebrow">Sustainable pooja essentials</span>
+      <h1>Light it. Let it <em>return</em> to the soil.</h1>
+      <p class="lead">Agarbatti, dhoop, flowers and diyas made from temple flowers, cow dung, clay and cotton — packed in paper, never plastic.</p>
+      <div class="hero-ctas"><a href="#/shop" class="btn btn-primary">Shop the collection</a><a href="#/shop/gift-boxes" class="btn btn-ghost">Gift boxes</a></div>
+    </div>
+    <div class="hero-art">${heroArt()}</div>
+  </section>
+  <div class="wrap"><div class="facts"><span>Charcoal-free</span><span>Plastic-free packaging</span><span>Hand-made in small batches</span><span>Delivery across India</span></div></div>
+
+  <section class="sec wrap">
+    <div class="sec-head"><div><span class="eyebrow">Shop by category</span><h2>Everything for the pooja room</h2></div><a href="#/shop" class="link">View all products</a></div>
+    <div class="cats">${CATEGORIES.map(c=>`<a class="cat" href="#/shop/${c.slug}"><div class="ph" style="background:${TONES[c.tone]}">${art({...c,slug:c.slug,name:c.name}, c.art)}</div><h3>${c.name}</h3><p>${c.note}</p></a>`).join('')}</div>
+  </section>
+
+  <section class="sec wrap" style="padding-top:0">
+    <div class="sec-head"><div><span class="eyebrow">Most loved</span><h2>Bestsellers</h2></div><a href="#/shop" class="link">Shop all</a></div>
+    <div class="grid">${best.map(card).join('')}</div>
+  </section>
+
+  <section class="band"><div class="wrap story">
+    <div><span class="eyebrow">How Virna is made</span><h2>From the temple steps back to your garden.</h2>
+      <p class="lead">Every day, flowers offered in temples are thrown into rivers. We collect them instead, and turn them into the things you light at home.</p>
+      <a href="#/about" class="btn btn-clay" style="margin-top:28px">Read our story</a></div>
+    <div class="steps">
+      <div class="step"><b>01</b><div><h3>Collected</h3><p>Offered flowers are gathered from temples before they reach the river, then sorted by hand.</p></div></div>
+      <div class="step"><b>02</b><div><h3>Hand-rolled</h3><p>Dried in the shade, ground, and rolled or pressed in small batches — no charcoal, no synthetic binders.</p></div></div>
+      <div class="step"><b>03</b><div><h3>Returned</h3><p>Paper boxes, cotton thread, clay. The ash, the diyas and the packaging can all go back into the soil.</p></div></div>
+    </div>
+  </div></section>
+
+  <section class="sec wrap">
+    <div class="feature">
+      <div class="art">${art(byId('P14'))}</div>
+      <div class="txt"><span class="eyebrow">Gift boxes</span><h2>A thoughtful box, packed by hand.</h2>
+        <p class="muted">Pick a ready-made box or tell us what to put inside. Every box goes out in kraft paper with a seed-paper card your recipient can plant.</p>
+        <ul class="ticks"><li>Hand-written note from you, free</li><li>Ships in 2–3 working days</li><li>Custom boxes for 25+ orders</li></ul>
+        <a href="#/shop/gift-boxes" class="btn btn-primary">Shop gift boxes</a></div>
+    </div>
+  </section>
+
+  <section class="sec wrap" style="padding-top:0">
+    <div class="sec-head"><div><span class="eyebrow">Also in the shop</span><h2>Small things, used every day</h2></div></div>
+    <div class="grid">${more.map(card).join('')}</div>
+  </section>
+
+  <section class="wrap"><div class="bulk">
+    <div><span class="eyebrow">Bulk &amp; corporate</span><h2 style="margin-top:8px">Gifting for your team or family?</h2><p>Custom boxes, your message on every card, and delivery to multiple addresses. Tell us the quantity and we will send a quote within a day.</p></div>
+    <a href="#/contact" class="btn btn-primary">Request a quote</a>
+  </div></section>
+
+  <section class="sec wrap"><div class="news">
+    <span class="eyebrow">Letters from Virna</span><h2>New batches, restocks, nothing else.</h2>
+    <p class="muted">One email a month. Unsubscribe any time.</p>
+    <form data-form="news"><label class="sr" for="nemail">Email</label><input id="nemail" type="email" required placeholder="Your email address"><button class="btn btn-primary" type="submit">Subscribe</button></form>
+  </div></section>`;
+}
+
+let shopSort='featured';
+function sortList(list){
+  const l=[...list];
+  if(shopSort==='low') l.sort((a,b)=>a.sizes[0].price-b.sizes[0].price);
+  if(shopSort==='high') l.sort((a,b)=>b.sizes[0].price-a.sizes[0].price);
+  if(shopSort==='new') l.sort((a,b)=>(b.tag==='New')-(a.tag==='New'));
+  return l;
+}
+function Shop(cat){
+  const c=catBySlug(cat), list=c?PRODUCTS.filter(p=>p.category===c.slug):PRODUCTS;
+  return `<div class="wrap">
+    <div class="crumbs"><a href="#/">Home</a> / ${c?`<a href="#/shop">Shop</a> / ${c.name}`:'Shop'}</div>
+    <div class="page-head"><h1>${c?c.name:'Shop all'}</h1><p>${c?c.note+'. Made in small batches, packed in paper.':'Agarbatti, dhoop, flowers, diyas and gift boxes — all made from materials the earth can take back.'}</p></div>
+    <div class="toolbar">
+      <div class="chips"><a class="chip ${!c?'on':''}" href="#/shop">All</a>${CATEGORIES.map(x=>`<a class="chip ${c&&c.slug===x.slug?'on':''}" href="#/shop/${x.slug}">${x.name}</a>`).join('')}</div>
+      <label class="sort">Sort by <select id="sort">
+        <option value="featured" ${shopSort==='featured'?'selected':''}>Featured</option>
+        <option value="new" ${shopSort==='new'?'selected':''}>New arrivals</option>
+        <option value="low" ${shopSort==='low'?'selected':''}>Price: low to high</option>
+        <option value="high" ${shopSort==='high'?'selected':''}>Price: high to low</option></select></label>
+    </div>
+    <p class="muted" style="font-size:13px;margin:-18px 0 22px">${list.length} products</p>
+    <div class="grid" id="grid">${sortList(list).map(card).join('')}</div>
+  </div><div class="sec"></div>`;
+}
+
+function Search(q){
+  const t=q.toLowerCase().trim();
+  const list=t?PRODUCTS.filter(p=>(p.name+' '+p.short+' '+p.category+' '+p.desc).toLowerCase().includes(t)):[];
+  return `<div class="wrap"><div class="crumbs"><a href="#/">Home</a> / Search</div>
+    <div class="page-head"><h1>${t?`Results for “${esc(q)}”`:'Search'}</h1><p>${list.length} product${list.length===1?'':'s'} found</p></div>
+    ${list.length?`<div class="grid">${list.map(card).join('')}</div>`:`<div class="empty">Nothing matched. Try “agarbatti”, “diya” or “gift”.<br><br><a href="#/shop" class="btn btn-ghost">Browse all products</a></div>`}
+  </div><div class="sec"></div>`;
+}
+
+let pd={id:null,size:0,qty:1,view:0};
+function Product(slug){
+  const p=bySlug(slug); if(!p) return NotFound();
+  if(pd.id!==p.id) pd={id:p.id,size:0,qty:1,view:0};
+  const c=catBySlug(p.category), s=p.sizes[pd.size];
+  const views=[[p.tone,p.art],[TONE_ALT[p.tone],'pack'],[TONE_ALT[p.tone],p.art]];
+  const related=PRODUCTS.filter(x=>x.category===p.category&&x.id!==p.id).concat(PRODUCTS.filter(x=>x.category!==p.category&&x.tag)).slice(0,4);
+  return `<div class="wrap">
+    <div class="crumbs"><a href="#/">Home</a> / <a href="#/shop/${c.slug}">${c.name}</a> / ${p.name}</div>
+    <div class="pdp">
+      <div class="gallery">
+        <div class="main" id="pd-main" style="background:${TONES[views[pd.view][0]]}">${art(p,views[pd.view][1])}</div>
+        <div class="thumbs">${views.map((v,i)=>`<button class="${i===pd.view?'on':''}" style="background:${TONES[v[0]]}" data-act="view" data-i="${i}" aria-label="View image ${i+1}">${art(p,v[1])}</button>`).join('')}</div>
+      </div>
+      <div class="pdp-info">
+        <span class="eyebrow">${c.name}</span>
+        <h1>${p.name}</h1>
+        <p class="pdp-price" id="pd-price">${fmt(s.price)}${s.mrp?`<span class="mrp">${fmt(s.mrp)}</span>`:''}</p>
+        <p class="pdp-tax">Inclusive of all taxes. ${s.price>=CONFIG.freeShippingOver?'Ships free.':`Free shipping above ${fmt(CONFIG.freeShippingOver)}.`}</p>
+        <p class="pdp-desc">${p.desc}</p>
+        ${p.sizes.length>1?`<p class="opt-label">Size</p><div class="sizes">${p.sizes.map((z,i)=>`<button class="size ${i===pd.size?'on':''}" data-act="size" data-i="${i}">${z.label}</button>`).join('')}</div>`:`<p class="opt-label">Size</p><div class="sizes"><span class="size on" style="display:inline-flex;align-items:center">${s.label}</span></div>`}
+        <div class="buy-row">
+          <div class="stepper"><button data-act="pd-dec" aria-label="Decrease">−</button><span id="pd-qty">${pd.qty}</span><button data-act="pd-inc" aria-label="Increase">+</button></div>
+          <button class="btn btn-primary" data-act="pd-add">Add to cart</button>
+        </div>
+        <button class="btn btn-ghost btn-block buy-now" data-act="pd-buy">Buy it now</button>
+        <div class="perks"><div><b>Charcoal-free</b>Natural binders</div><div><b>Plastic-free</b>Paper packaging</div><div><b>Dispatch</b>In 1–2 days</div></div>
+        ${p.includes?`<details class="acc" open><summary>What's in the box</summary><div class="acc-body"><ul>${p.includes.map(i=>`<li>${i}</li>`).join('')}</ul></div></details>`:''}
+        <details class="acc" ${p.includes?'':'open'}><summary>Made from</summary><div class="acc-body"><ul>${p.made.map(i=>`<li>${i}</li>`).join('')}</ul></div></details>
+        <details class="acc"><summary>How to use</summary><div class="acc-body">${p.use}</div></details>
+        <details class="acc"><summary>Shipping &amp; returns</summary><div class="acc-body">Dispatched in 1–2 working days; delivery in 3–7 days across India. Free shipping above ${fmt(CONFIG.freeShippingOver)}. If anything arrives broken, send us a photo within 48 hours and we will replace it.</div></details>
+      </div>
+    </div>
+    <section class="sec" style="padding-top:40px"><div class="sec-head"><div><span class="eyebrow">Pairs well with</span><h2>You may also like</h2></div></div>
+      <div class="grid">${related.map(card).join('')}</div></section>
+  </div>`;
+}
+
+const STATES=['Andhra Pradesh','Arunachal Pradesh','Assam','Bihar','Chhattisgarh','Goa','Gujarat','Haryana','Himachal Pradesh','Jharkhand','Karnataka','Kerala','Madhya Pradesh','Maharashtra','Manipur','Meghalaya','Mizoram','Nagaland','Odisha','Punjab','Rajasthan','Sikkim','Tamil Nadu','Telangana','Tripura','Uttar Pradesh','Uttarakhand','West Bengal','Andaman and Nicobar Islands','Chandigarh','Dadra and Nagar Haveli and Daman and Diu','Delhi','Jammu and Kashmir','Ladakh','Lakshadweep','Puducherry'];
+const field=(id,label,attrs='',cls='',msg='Please fill this in')=>`<div class="field ${cls}"><label for="${id}">${label}</label><input id="${id}" name="${id}" ${attrs}><div class="msg">${msg}</div></div>`;
+
+function summaryHTML(){
+  const t=totals();
+  return `<h3>Order summary</h3>
+    ${t.lines.map(l=>`<div class="line"><div class="th" style="background:${TONES[l.p.tone]}">${art(l.p)}</div><div><h4>${l.p.name}</h4><div class="meta">${l.s.label} × ${l.qty}</div></div><div class="amt">${fmt(l.amount)}</div></div>`).join('')}
+    <div class="coupon"><label class="sr" for="coupon">Coupon</label><input id="coupon" placeholder="Coupon code"><button type="button" data-act="coupon">Apply</button></div>
+    <div class="row"><span class="muted">Subtotal</span><span>${fmt(t.subtotal)}</span></div>
+    <div class="row"><span class="muted">Shipping</span><span>${t.shipping?fmt(t.shipping):'Free'}</span></div>
+    <div class="row total"><span>Total</span><span>${fmt(t.total)}</span></div>
+    <p class="muted" style="font-size:12px;margin-top:6px">Inclusive of GST</p>`;
+}
+function Checkout(){
+  const t=totals();
+  if(!t.count) return `<div class="wrap done"><h1>Your cart is empty</h1><p class="muted" style="margin:12px 0 26px">Add something to get started.</p><a class="btn btn-primary" href="#/shop">Shop the collection</a></div>`;
+  return `<div class="wrap">
+    <div class="crumbs"><a href="#/">Home</a> / Checkout</div>
+    <div class="page-head"><h1>Checkout</h1></div>
+    <div class="co">
+      <form id="co-form" novalidate>
+        <h2>Contact</h2>
+        <div class="fields">
+          ${field('email','Email','type="email" autocomplete="email" required','','Enter a valid email')}
+          ${field('phone','Mobile number','type="tel" inputmode="numeric" maxlength="10" autocomplete="tel" required placeholder="10-digit number"','','Enter a 10-digit mobile number')}
+        </div>
+        <h2>Delivery address</h2>
+        <div class="fields">
+          ${field('fname','First name','autocomplete="given-name" required')}
+          ${field('lname','Last name','autocomplete="family-name" required')}
+          ${field('address','Flat, house no., building, street','autocomplete="address-line1" required','full')}
+          ${field('address2','Area, landmark (optional)','autocomplete="address-line2"','full')}
+          ${field('pincode','PIN code','inputmode="numeric" maxlength="6" autocomplete="postal-code" required','','Enter a 6-digit PIN code')}
+          ${field('city','City','autocomplete="address-level2" required')}
+          <div class="field full"><label for="state">State</label><select id="state" name="state" required><option value="">Select state</option>${STATES.map(s=>`<option>${s}</option>`).join('')}</select><div class="msg">Select your state</div></div>
+          <div class="field full"><label for="gift">Gift message (optional)</label><textarea id="gift" name="gift" placeholder="We will hand-write this on a seed-paper card"></textarea></div>
+        </div>
+        <h2>Payment</h2>
+        <label class="opt"><input type="radio" name="pay" value="online" checked><div><b>Pay online</b><span>UPI, credit &amp; debit cards, netbanking and wallets — secured by Razorpay</span></div></label>
+        <label class="opt"><input type="radio" name="pay" value="cod"><div><b>Cash on delivery</b><span>Pay when your order arrives</span></div></label>
+        <p class="note">This is a preview. Placing an order here simulates payment — no money is charged and nothing is shipped.</p>
+        <button class="btn btn-primary btn-block" type="submit" id="place">Place order · ${fmt(t.total)}</button>
+      </form>
+      <aside class="summary" id="co-summary">${summaryHTML()}</aside>
+    </div>
+  </div>`;
+}
+
+function OrderDone(id){
+  const o=lastOrder&&lastOrder.id===id?lastOrder:null;
+  if(!o) return NotFound();
+  return `<div class="wrap done">
+    <div class="tick"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F3EBDC" stroke-width="2.4"><path d="m5 12 5 5 9-10"/></svg></div>
+    <span class="eyebrow">Order ${o.id}</span>
+    <h1 style="margin-top:10px">Thank you, ${esc(o.customer.fname)}.</h1>
+    <p class="muted" style="margin-top:12px">We have sent a confirmation to ${esc(o.customer.email)}. ${o.pay==='cod'?'Please keep '+fmt(o.total)+' ready at delivery.':'Your payment was received.'}</p>
+    <div class="box">
+      ${o.lines.map(l=>`<div class="row"><span>${l.name} <span class="muted">· ${l.size} × ${l.qty}</span></span><span>${fmt(l.amount)}</span></div>`).join('')}
+      <div class="row"><span class="muted">Shipping</span><span>${o.shipping?fmt(o.shipping):'Free'}</span></div>
+      <div class="row total"><span>Total</span><span>${fmt(o.total)}</span></div>
+      <p class="muted" style="font-size:13.5px;margin-top:18px"><b style="color:var(--ink)">Delivering to</b><br>${esc(o.customer.fname)} ${esc(o.customer.lname)}, ${esc(o.customer.address)}${o.customer.address2?', '+esc(o.customer.address2):''}, ${esc(o.customer.city)}, ${esc(o.customer.state)} – ${esc(o.customer.pincode)}</p>
+    </div>
+    <a href="#/shop" class="btn btn-primary">Continue shopping</a>
+  </div>`;
+}
+
+function About(){
+  return `<div class="wrap"><div class="crumbs"><a href="#/">Home</a> / Our story</div>
+    <div class="split">
+      <div><span class="eyebrow">Our story</span><h1 style="font-size:clamp(40px,4.6vw,60px);margin:14px 0 18px">Rituals that don't cost the river.</h1>
+        <p class="muted" style="font-size:17px">Virna began with a simple question: where do the flowers go after the aarti? Most of them end up in rivers and landfills. We thought they deserved a second life.</p></div>
+      <div class="art" style="background:${TONES.sage}">${art({slug:'about'},'toran')}</div>
+    </div>
+    <div class="prose">
+      <h2>What we make</h2>
+      <p>Agarbatti and dhoop rolled from temple flowers and cow dung, without charcoal. Clay diyas painted by hand. Torans and petals dried so they last the season. Gift boxes that carry all of it, in paper.</p>
+      <h2>What we won't use</h2>
+      <p>Charcoal, synthetic fragrance fillers, plastic wrap, foam inserts. If something can't go back into the soil or be reused at home, we keep looking for an alternative.</p>
+      <h2>Who makes it</h2>
+      <p>Our products are made in small batches by artisan groups we work with directly. [Placeholder — to be replaced with Virna's own story, founders and partner details.]</p>
+      <a href="#/shop" class="btn btn-primary" style="margin-top:14px">Shop the collection</a>
+    </div></div><div class="sec"></div>`;
+}
+
+function Faq(){
+  const qa=[
+    ['How long does delivery take?','Orders are dispatched in 1–2 working days. Delivery takes 3–7 working days depending on your PIN code.'],
+    ['Is shipping free?',`Shipping is free on orders above ${fmt(CONFIG.freeShippingOver)}. Below that, a flat ${fmt(CONFIG.shippingFee)} applies.`],
+    ['Do you offer cash on delivery?','Yes, COD is available on most PIN codes across India.'],
+    ['What if something arrives broken?','Diyas are fragile. Send us a photo within 48 hours of delivery and we will send a replacement at no cost.'],
+    ['Can I return an order?','Because these are consumable and ritual products, we can only accept returns for damaged or incorrect items.'],
+    ['Are your agarbatti really charcoal-free?','Yes. We use natural binders like jigat instead of charcoal, which means less black smoke and a cleaner burn.'],
+    ['Do you do bulk or corporate orders?','Yes — custom boxes, branded cards and delivery to multiple addresses on orders of 25 or more. Write to us from the Contact page.']
+  ];
+  return `<div class="wrap"><div class="crumbs"><a href="#/">Home</a> / FAQs</div>
+    <div class="page-head"><h1>Questions, answered</h1><p>Shipping, returns and everything else. Can't find it? <a class="link" href="#/contact">Write to us</a>.</p></div>
+    <div class="faq">${qa.map((x,i)=>`<details class="acc" ${i===0?'open':''}><summary>${x[0]}</summary><div class="acc-body">${x[1]}</div></details>`).join('')}</div>
+  </div><div class="sec"></div>`;
+}
+
+function Contact(){
+  return `<div class="wrap"><div class="crumbs"><a href="#/">Home</a> / Contact</div>
+    <div class="page-head"><h1>Get in touch</h1><p>Questions about an order, or planning a bulk gift? We reply within one working day.</p></div>
+    <div class="contact">
+      <dl><div><dt>Email</dt><dd><a class="link" href="mailto:hello@virna.in">hello@virna.in</a></dd></div>
+        <div><dt>WhatsApp</dt><dd>To be added</dd></div>
+        <div><dt>Hours</dt><dd>Monday to Saturday, 10am – 6pm</dd></div></dl>
+      <form data-form="contact" id="contact-form">
+        <div class="fields">
+          <div class="field"><label for="cname">Name</label><input id="cname" required></div>
+          <div class="field"><label for="cemail">Email</label><input id="cemail" type="email" required></div>
+          <div class="field full"><label for="ctopic">Topic</label><select id="ctopic"><option>Order question</option><option>Bulk / corporate gifting</option><option>Something else</option></select></div>
+          <div class="field full"><label for="cmsg">Message</label><textarea id="cmsg" required></textarea></div>
+        </div>
+        <button class="btn btn-primary" style="margin-top:16px" type="submit">Send message</button>
+      </form>
+    </div></div>`;
+}
+function NotFound(){ return `<div class="wrap done"><h1>Page not found</h1><p class="muted" style="margin:12px 0 26px">That link doesn't lead anywhere.</p><a class="btn btn-primary" href="#/">Back to home</a></div>`; }
+
+/* ---------------------------------- cart ---------------------------------- */
+function renderCart(){
+  const t=totals(), el=document.getElementById('cart-count');
+  el.textContent=t.count; el.dataset.n=t.count;
+  const body=document.getElementById('cart-body'), foot=document.getElementById('cart-foot');
+  if(!t.count){ body.innerHTML=`<div class="empty">Your cart is empty.<br><br><a href="#/shop" class="btn btn-ghost" data-act="close">Start shopping</a></div>`; foot.innerHTML=''; return; }
+  const left=CONFIG.freeShippingOver-t.subtotal;
+  body.innerHTML=`<div class="ship-bar">${left>0?`Add <b>${fmt(left)}</b> more for free shipping`:'You have unlocked <b>free shipping</b>'}<div class="track"><div class="fill" style="width:${Math.min(100,t.subtotal/CONFIG.freeShippingOver*100)}%"></div></div></div>`+
+    t.lines.map((l,i)=>`<div class="line"><a href="#/product/${l.p.slug}" class="th" style="background:${TONES[l.p.tone]}">${art(l.p)}</a>
+      <div><h4>${l.p.name}</h4><div class="meta">${l.s.label} · ${fmt(l.s.price)}</div>
+        <div class="qty"><button data-act="dec" data-i="${i}" aria-label="Decrease">−</button><span>${l.qty}</span><button data-act="inc" data-i="${i}" aria-label="Increase">+</button></div>
+        <button class="rm" data-act="rm" data-i="${i}">Remove</button></div>
+      <div class="amt">${fmt(l.amount)}</div></div>`).join('');
+  foot.innerHTML=`<div class="row"><span class="muted">Subtotal</span><span>${fmt(t.subtotal)}</span></div>
+    <div class="row"><span class="muted">Shipping</span><span>${t.shipping?fmt(t.shipping):'Free'}</span></div>
+    <div class="row total"><span>Total</span><span>${fmt(t.total)}</span></div>
+    <a href="#/checkout" class="btn btn-primary btn-block" style="margin-top:14px">Checkout</a>`;
+  if(location.hash.startsWith('#/checkout')){ const s=document.getElementById('co-summary'); if(s) s.innerHTML=summaryHTML(); const b=document.getElementById('place'); if(b) b.textContent='Place order · '+fmt(t.total); }
+}
+function openDrawer(id){ document.getElementById(id).classList.add('open'); document.getElementById('scrim').classList.add('open'); }
+function closeDrawers(){ document.querySelectorAll('.drawer.open,.scrim.open').forEach(e=>e.classList.remove('open')); }
+
+/* -------------------------------- payments -------------------------------- */
+const Payments = {
+  async start(order){
+    if(order.pay==='cod') return {ok:true, method:'cod'};
+    if(!CONFIG.razorpayKey) { await new Promise(r=>setTimeout(r,1100)); return {ok:true, method:'simulated'}; }
+    // Live flow: server creates a Razorpay order, browser opens Checkout, server verifies the signature.
+    await loadScript('https://checkout.razorpay.com/v1/checkout.js');
+    const res = await fetch(CONFIG.api.createOrder,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(order)}).then(r=>r.json());
+    return new Promise(resolve=>{
+      const rzp = new window.Razorpay({
+        key: CONFIG.razorpayKey, amount: res.amount, currency: CONFIG.currency, order_id: res.razorpay_order_id,
+        name: 'Virna', description: 'Order '+order.id,
+        prefill: { name: order.customer.fname+' '+order.customer.lname, email: order.customer.email, contact: order.customer.phone },
+        theme: { color: '#4F5A3F' },
+        handler: async resp => { const v=await fetch(CONFIG.api.verifyPayment,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(resp)}).then(r=>r.json()); resolve({ok:!!v.ok, method:'razorpay'}); },
+        modal: { ondismiss: () => resolve({ok:false, cancelled:true}) }
+      });
+      rzp.open();
+    });
+  }
+};
+function loadScript(src){ return new Promise((res,rej)=>{ if(document.querySelector(`script[src="${src}"]`)) return res(); const s=document.createElement('script'); s.src=src; s.onload=res; s.onerror=rej; document.head.appendChild(s); }); }
+
+async function placeOrder(form){
+  const v=id=>form.querySelector('#'+id).value.trim();
+  const checks={ email:/^\S+@\S+\.\S+$/.test(v('email')), phone:/^[6-9]\d{9}$/.test(v('phone')), fname:!!v('fname'), lname:!!v('lname'),
+    address:!!v('address'), pincode:/^\d{6}$/.test(v('pincode')), city:!!v('city'), state:!!v('state') };
+  let first=null;
+  for(const [k,ok] of Object.entries(checks)){ const f=form.querySelector('#'+k).closest('.field'); f.classList.toggle('err',!ok); if(!ok&&!first) first=f; }
+  if(first){ first.scrollIntoView({behavior:'smooth',block:'center'}); first.querySelector('input,select').focus({preventScroll:true}); return; }
+  const t=totals(), btn=form.querySelector('#place');
+  const order={ id:'VRN'+String(Math.floor(10000+Math.random()*89999)), pay:form.querySelector('input[name=pay]:checked').value,
+    customer:{email:v('email'),phone:v('phone'),fname:v('fname'),lname:v('lname'),address:v('address'),address2:v('address2'),pincode:v('pincode'),city:v('city'),state:v('state'),gift:v('gift')},
+    lines:t.lines.map(l=>({id:l.id,name:l.p.name,size:l.s.label,qty:l.qty,price:l.s.price,amount:l.amount})),
+    subtotal:t.subtotal, shipping:t.shipping, total:t.total };
+  btn.disabled=true; btn.textContent=order.pay==='cod'?'Placing order…':'Processing payment…';
+  try{
+    const r=await Payments.start(order);
+    if(!r.ok){ btn.disabled=false; btn.textContent='Place order · '+fmt(t.total); toast(r.cancelled?'Payment cancelled':'Payment failed — please try again'); return; }
+    lastOrder=order; store.set('virna_last_order',order); cart=[]; saveCart(); location.hash='#/order/'+order.id;
+  }catch(e){ btn.disabled=false; btn.textContent='Place order · '+fmt(t.total); toast('Something went wrong — please try again'); }
+}
+
+/* --------------------------------- router --------------------------------- */
+const app=document.getElementById('app');
+function route(){
+  const [page='',a='']=location.hash.replace(/^#\/?/,'').split('/');
+  closeDrawers(); document.getElementById('searchbar').classList.remove('open');
+  const views={'':Home,shop:()=>Shop(a),product:()=>Product(a),checkout:Checkout,order:()=>OrderDone(a),about:About,faq:Faq,contact:Contact,search:()=>Search(decodeURIComponent(a))};
+  app.innerHTML=(views[page]||NotFound)();
+  window.scrollTo(0,0);
+  document.querySelectorAll('.nav a').forEach(n=>n.classList.toggle('on', n.getAttribute('href')==='#/'+[page,a].filter(Boolean).join('/')));
+  const p=page==='product'&&bySlug(a);
+  document.title = p?`${p.name} — Virna`:page==='shop'&&catBySlug(a)?`${catBySlug(a).name} — Virna`:'Virna — Sustainable Pooja Essentials';
+}
+function toast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(toast.t); toast.t=setTimeout(()=>t.classList.remove('show'),2400); }
+
+function refreshPdp(){ const y=scrollY; app.innerHTML=Product(bySlug(location.hash.split('/')[2]).slug); scrollTo(0,y); }
+
+document.addEventListener('click',e=>{
+  const el=e.target.closest('[data-act]'); if(!el) return;
+  const act=el.dataset.act, i=+el.dataset.i;
+  switch(act){
+    case 'add': addToCart(el.dataset.id); break;
+    case 'inc': cart[i].qty++; saveCart(); break;
+    case 'dec': cart[i].qty>1?cart[i].qty--:cart.splice(i,1); saveCart(); break;
+    case 'rm': cart.splice(i,1); saveCart(); break;
+    case 'open-cart': openDrawer('cart'); break;
+    case 'menu': openDrawer('mmenu'); break;
+    case 'close': closeDrawers(); break;
+    case 'search': { const s=document.getElementById('searchbar'); s.classList.toggle('open'); if(s.classList.contains('open')) document.getElementById('q').focus(); break; }
+    case 'size': pd.size=i; refreshPdp(); break;
+    case 'view': pd.view=i; refreshPdp(); break;
+    case 'pd-inc': pd.qty++; document.getElementById('pd-qty').textContent=pd.qty; break;
+    case 'pd-dec': pd.qty=Math.max(1,pd.qty-1); document.getElementById('pd-qty').textContent=pd.qty; break;
+    case 'pd-add': addToCart(pd.id,pd.size,pd.qty); break;
+    case 'pd-buy': { const hit=cart.find(l=>l.id===pd.id&&l.size===pd.size); hit?hit.qty+=pd.qty:cart.push({id:pd.id,size:pd.size,qty:pd.qty}); saveCart(); location.hash='#/checkout'; break; }
+    case 'coupon': toast('Coupons will work once the store goes live'); break;
+  }
+});
+document.addEventListener('change',e=>{
+  if(e.target.id==='sort'){ shopSort=e.target.value; const cat=location.hash.split('/')[2]; const c=catBySlug(cat); document.getElementById('grid').innerHTML=sortList(c?PRODUCTS.filter(p=>p.category===c.slug):PRODUCTS).map(card).join(''); }
+});
+document.addEventListener('input',e=>{ const f=e.target.closest('.field.err'); if(f) f.classList.remove('err'); });
+document.addEventListener('submit',e=>{
+  const f=e.target;
+  if(f.id==='search-form'){ e.preventDefault(); const q=document.getElementById('q').value.trim(); if(q) location.hash='#/search/'+encodeURIComponent(q); }
+  else if(f.id==='co-form'){ e.preventDefault(); placeOrder(f); }
+  else if(f.dataset.form==='news'){ e.preventDefault(); f.outerHTML='<p style="margin-top:22px;font-weight:600">Thank you — you are on the list.</p>'; }
+  else if(f.dataset.form==='contact'){ e.preventDefault(); f.innerHTML='<div class="note" style="font-size:15px">Thank you — we will reply within one working day.</div>'; }
+});
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeDrawers(); });
+window.addEventListener('hashchange',route);
+
+renderCart(); route();
+</script>
+</body>
+</html>
