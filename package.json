@@ -13,7 +13,9 @@
     "test": "node --disable-warning=ExperimentalWarning --test \"test/**/*.test.js\""
   },
   "dependencies": {
+    "@netlify/database": "^2.0.1",
     "express": "^5.2.1",
-    "google-auth-library": "^11.1.0"
+    "google-auth-library": "^11.1.0",
+    "serverless-http": "^4.0.0"
   }
 }
