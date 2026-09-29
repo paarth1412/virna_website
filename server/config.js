@@ -1,12 +1,15 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const root = path.resolve(import.meta.dirname, '..');
+const root = import.meta.dirname ? path.resolve(import.meta.dirname, '..') : process.cwd();
 const envFile = path.join(root, '.env');
 if (fs.existsSync(envFile) && !process.env.VIRNA_SKIP_ENV_FILE) process.loadEnvFile(envFile);
 
 const env = process.env;
-const isProd = env.NODE_ENV === 'production';
+// Deployed Netlify functions count as production even if NODE_ENV isn't set, so
+// payments are never simulated on the live site. `netlify dev` stays in development.
+const onNetlify = Boolean(env.AWS_LAMBDA_FUNCTION_NAME) && !env.NETLIFY_DEV;
+const isProd = env.NODE_ENV === 'production' || onNetlify;
 const port = Number(env.PORT) || 4390;
 
 // ADMIN_1_EMAIL / ADMIN_1_PASSWORD, ADMIN_2_EMAIL / ADMIN_2_PASSWORD, ...
@@ -27,7 +30,6 @@ export const config = {
   root,
   isProd,
   port,
-  dbPath: env.DATABASE_PATH || path.join(root, 'data', 'virna.db'),
   googleClientId: env.GOOGLE_CLIENT_ID || '',
   razorpay,
   razorpayReady,

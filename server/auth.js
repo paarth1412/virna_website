@@ -36,25 +36,25 @@ function parseCookies(header = '') {
   return out;
 }
 
-export function startSession(res, userId) {
+export async function startSession(res, userId) {
   const token = crypto.randomBytes(32).toString('base64url');
   const maxAge = config.sessionDays * 86400;
-  run('INSERT INTO sessions (token_hash, user_id, expires_at) VALUES (?, ?, ?)', sha256(token), userId, Date.now() + maxAge * 1000);
+  await run('INSERT INTO sessions (token_hash, user_id, expires_at) VALUES (?, ?, ?)', sha256(token), userId, Date.now() + maxAge * 1000);
   res.cookie(COOKIE, token, { httpOnly: true, sameSite: 'lax', secure: config.isProd, maxAge: maxAge * 1000, path: '/' });
 }
 
-export function endSession(req, res) {
+export async function endSession(req, res) {
   const token = parseCookies(req.headers.cookie)[COOKIE];
-  if (token) run('DELETE FROM sessions WHERE token_hash = ?', sha256(token));
+  if (token) await run('DELETE FROM sessions WHERE token_hash = ?', sha256(token));
   res.clearCookie(COOKIE, { path: '/' });
 }
 
 // Attaches req.user (or null) from the session cookie.
-export function loadUser(req, _res, next) {
+export async function loadUser(req, _res, next) {
   req.user = null;
   const token = parseCookies(req.headers.cookie)[COOKIE];
   if (token) {
-    const row = one(`SELECT u.* FROM sessions s JOIN users u ON u.id = s.user_id
+    const row = await one(`SELECT u.* FROM sessions s JOIN users u ON u.id = s.user_id
                      WHERE s.token_hash = ? AND s.expires_at > ?`, sha256(token), Date.now());
     if (row) req.user = row;
   }
@@ -81,15 +81,19 @@ export function publicUser(u) {
   };
 }
 
-export function purgeExpiredSessions() {
-  run('DELETE FROM sessions WHERE expires_at <= ?', Date.now());
+export async function purgeExpiredSessions() {
+  await run('DELETE FROM sessions WHERE expires_at <= ?', Date.now());
+  await run('DELETE FROM rate_limits WHERE reset_at <= ?', Date.now());
 }
 
 // Simple fixed-window limiter for login-style endpoints (per IP + key).
-const attempts = new Map();
-export function rateLimit(key, { max = 10, windowMs = 15 * 60 * 1000 } = {}) {
+// Kept in the database so every function instance shares the same counts.
+export async function rateLimit(key, { max = 10, windowMs = 15 * 60 * 1000 } = {}) {
   const now = Date.now();
-  const hit = attempts.get(key);
-  if (!hit || hit.reset < now) { attempts.set(key, { count: 1, reset: now + windowMs }); return; }
-  if (++hit.count > max) throw new HttpError(429, 'Too many attempts. Please wait a few minutes and try again.');
+  const { count } = await one(`INSERT INTO rate_limits (key, count, reset_at) VALUES (?, 1, ?)
+    ON CONFLICT (key) DO UPDATE SET
+      count = CASE WHEN rate_limits.reset_at < ? THEN 1 ELSE rate_limits.count + 1 END,
+      reset_at = CASE WHEN rate_limits.reset_at < ? THEN EXCLUDED.reset_at ELSE rate_limits.reset_at END
+    RETURNING count`, key, now + windowMs, now, now);
+  if (count > max) throw new HttpError(429, 'Too many attempts. Please wait a few minutes and try again.');
 }
