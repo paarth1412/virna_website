@@ -28,6 +28,7 @@ export const config = {
   isProd,
   port,
   dbPath: env.DATABASE_PATH || path.join(root, 'data', 'virna.db'),
+  turso: { url: env.TURSO_DATABASE_URL || '', authToken: env.TURSO_AUTH_TOKEN || '' },
   googleClientId: env.GOOGLE_CLIENT_ID || '',
   razorpay,
   razorpayReady,

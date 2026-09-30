@@ -13,15 +13,18 @@ Object.assign(process.env, {
   ADMIN_1_PASSWORD: 'admin-pass-123',
   GOOGLE_CLIENT_ID: '',
   RAZORPAY_KEY_ID: '',
-  RAZORPAY_KEY_SECRET: ''
+  RAZORPAY_KEY_SECRET: '',
+  TURSO_DATABASE_URL: ''
 });
 
 const { createApp } = await import('../server/app.js');
 const { seedCatalog, ensureAdmins } = await import('../server/seed.js');
+const { migrate } = await import('../server/db.js');
 
 let server, base;
 before(async () => {
-  seedCatalog();
+  await migrate();
+  await seedCatalog();
   await ensureAdmins();
   server = createApp().listen(0);
   await new Promise(r => server.once('listening', r));
@@ -153,4 +156,17 @@ test('admin: update stock and price, cancel order restores stock', async () => {
 test('signing up with an admin email is refused', async () => {
   const r = await client()('/auth/register', { method: 'POST', body: { name: 'X', email: 'admin@virna.test', password: 'secret-123' } });
   assert.equal(r.status, 409);
+});
+
+test('two customers racing for the last item: exactly one wins', async () => {
+  const admin = client();
+  await admin('/auth/login', { method: 'POST', body: { email: 'admin@virna.test', password: 'admin-pass-123' } });
+  await admin('/admin/variants/7', { method: 'PATCH', body: { stock: 1 } });
+  const a = client(), b = client();
+  await a('/auth/register', { method: 'POST', body: { name: 'F', email: 'f@example.com', password: 'secret-123' } });
+  await b('/auth/register', { method: 'POST', body: { name: 'G', email: 'g@example.com', password: 'secret-123' } });
+  const body = { items: [{ variantId: 7, qty: 1 }], address, phone: '9876543210', payMethod: 'cod' };
+  const results = await Promise.all([a('/orders', { method: 'POST', body }), b('/orders', { method: 'POST', body })]);
+  assert.deepEqual(results.map(r => r.status).sort(), [201, 409]);
+  assert.equal(await stockOf(admin, 7), 0);
 });

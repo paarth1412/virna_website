@@ -1,7 +1,7 @@
 import crypto from 'node:crypto';
 import { promisify } from 'node:util';
 import { config } from './config.js';
-import { one, run } from './db.js';
+import { db } from './db.js';
 
 const scrypt = promisify(crypto.scrypt);
 const COOKIE = 'virna_session';
@@ -36,25 +36,25 @@ function parseCookies(header = '') {
   return out;
 }
 
-export function startSession(res, userId) {
+export async function startSession(res, userId) {
   const token = crypto.randomBytes(32).toString('base64url');
   const maxAge = config.sessionDays * 86400;
-  run('INSERT INTO sessions (token_hash, user_id, expires_at) VALUES (?, ?, ?)', sha256(token), userId, Date.now() + maxAge * 1000);
+  await db.run('INSERT INTO sessions (token_hash, user_id, expires_at) VALUES (?, ?, ?)', sha256(token), userId, Date.now() + maxAge * 1000);
   res.cookie(COOKIE, token, { httpOnly: true, sameSite: 'lax', secure: config.isProd, maxAge: maxAge * 1000, path: '/' });
 }
 
-export function endSession(req, res) {
+export async function endSession(req, res) {
   const token = parseCookies(req.headers.cookie)[COOKIE];
-  if (token) run('DELETE FROM sessions WHERE token_hash = ?', sha256(token));
+  if (token) await db.run('DELETE FROM sessions WHERE token_hash = ?', sha256(token));
   res.clearCookie(COOKIE, { path: '/' });
 }
 
 // Attaches req.user (or null) from the session cookie.
-export function loadUser(req, _res, next) {
+export async function loadUser(req, _res, next) {
   req.user = null;
   const token = parseCookies(req.headers.cookie)[COOKIE];
   if (token) {
-    const row = one(`SELECT u.* FROM sessions s JOIN users u ON u.id = s.user_id
+    const row = await db.one(`SELECT u.* FROM sessions s JOIN users u ON u.id = s.user_id
                      WHERE s.token_hash = ? AND s.expires_at > ?`, sha256(token), Date.now());
     if (row) req.user = row;
   }
@@ -81,8 +81,8 @@ export function publicUser(u) {
   };
 }
 
-export function purgeExpiredSessions() {
-  run('DELETE FROM sessions WHERE expires_at <= ?', Date.now());
+export async function purgeExpiredSessions() {
+  await db.run('DELETE FROM sessions WHERE expires_at <= ?', Date.now());
 }
 
 // Simple fixed-window limiter for login-style endpoints (per IP + key).

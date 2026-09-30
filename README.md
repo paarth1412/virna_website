@@ -3,7 +3,7 @@
 Online store for Virna's sustainable pooja products: agarbatti, dhoop, flowers, diyas and gift boxes.
 
 - **Backend:** Node.js + Express (`server/`)
-- **Database:** SQLite, a single file at `data/virna.db`, created automatically. It uses Node's built-in driver, so there is nothing to install.
+- **Database:** SQLite through `@libsql/client`. Locally it's a file at `data/virna.db`; in production it's a free hosted [Turso](https://turso.tech) database.
 - **Frontend:** plain HTML, CSS and JS (`public/`), no build step
 - **Payments:** Razorpay (online) and cash on delivery
 - **Sign-in:** email + password, plus "Continue with Google"
@@ -73,14 +73,24 @@ The admin panel is at `/#/admin`. It shows an **Admin** button in the header for
 
 Without keys, online payment is **simulated** when running locally (a banner says so). With `NODE_ENV=production` and no keys, online payment is switched off and only COD is offered.
 
-## Deploying
+## Deploying (free: Render + Turso)
 
-This needs a host that runs Node and keeps files on disk, because SQLite lives on disk. Good options:
+**1. Database on Turso (free)**
+- Sign up at turso.tech and create a database in the region closest to your server (Mumbai or Singapore).
+- Copy its URL (`libsql://…`) and create an auth token for it.
 
-- **Render** (web service + persistent disk)
-- **Railway** (service + volume)
-- A small **VPS**
+**2. Server on Render (free web service)**
+- New → Web Service → connect this repo.
+- Build command: `npm install`. Start command: `npm start`. Plan: Free.
+- Environment variables:
+  - `NODE_ENV=production`
+  - `TURSO_DATABASE_URL`
+  - `TURSO_AUTH_TOKEN`
+  - `ADMIN_1_EMAIL` / `ADMIN_1_PASSWORD`, `ADMIN_2_EMAIL` / `ADMIN_2_PASSWORD`
+  - later: `GOOGLE_CLIENT_ID` and the Razorpay keys
 
-Set `NODE_ENV=production`, the same variables as `.env`, and `DATABASE_PATH` pointing at the persistent disk. Put HTTPS in front, which Render and Railway do automatically. Netlify alone can't run this, because it only serves static files.
+On first start the server creates the tables in Turso, loads the sample catalogue and creates the admin accounts.
 
-**Back up `data/virna.db` regularly.** It holds every order and customer.
+**Free-plan note:** Render's free server sleeps after 15 minutes without visitors, and the next visit takes about 30–50 seconds to wake it. To keep it awake, add a free monitor (for example UptimeRobot) that requests `https://<your-site>/api/health` every 5 minutes. Your data is safe either way, because it lives in Turso, not on the server.
+
+When you push new code, open the service on Render and click **Manual Deploy → Deploy latest commit**. If you connect GitHub to Render instead, this happens automatically.

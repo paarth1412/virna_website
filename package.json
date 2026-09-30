@@ -2,17 +2,18 @@
   "name": "virna-website",
   "version": "1.0.0",
   "private": true,
-  "description": "Virna storefront - Express + SQLite backend with a vanilla JS frontend",
+  "description": "Virna storefront - Express + SQLite (Turso) backend with a vanilla JS frontend",
   "type": "module",
   "engines": {
     "node": ">=22.13"
   },
   "scripts": {
-    "start": "node --disable-warning=ExperimentalWarning server/index.js",
-    "dev": "node --disable-warning=ExperimentalWarning --watch server/index.js",
-    "test": "node --disable-warning=ExperimentalWarning --test \"test/**/*.test.js\""
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "test": "node --test \"test/**/*.test.js\""
   },
   "dependencies": {
+    "@libsql/client": "^0.18.0",
     "express": "^5.2.1",
     "google-auth-library": "^11.1.0"
   }
